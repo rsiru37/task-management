@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
-// require('dotenv').config();
+import { BACKEND_URL } from "../config"
+
 export const Signup = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
