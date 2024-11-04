@@ -2,6 +2,7 @@ import {React, useState} from 'react';
 import axios from "axios"
 import { EditTask } from '../EditTask';
 import { FaTrash } from 'react-icons/fa';
+import { BACKEND_URL } from '../../config';
 
 function AdminCard({ task }) {
   const due = new Date(task.due_date);

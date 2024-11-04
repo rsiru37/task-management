@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios"
+import { BACKEND_URL } from '../../config';
 
 function TaskCard({ task, onStatusChange }) {
   const due = new Date(task.due_date);
