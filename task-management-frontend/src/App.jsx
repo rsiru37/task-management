@@ -5,7 +5,7 @@ import { Signup } from './components/Signup';
 import { Signin } from './components/Signin';
 import { Dashboard } from './components/Dashboard';
 import { ADashboard } from './components/ADashboard';
-
+import Home from './components/Home';
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +14,7 @@ function App() {
         <Route path={"/signin"} element={<Signin />} />
         <Route path={"/dashboard"} element={<Dashboard />} />
         <Route path={"/admin-board"} element={<ADashboard />} />
+        <Route path={"/"} element={<Home />} />
       </Routes>
     </BrowserRouter>
   )
