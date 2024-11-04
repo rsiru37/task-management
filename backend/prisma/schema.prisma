@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Tasks {
+  id                   Int      @id @default(autoincrement()) @db.SmallInt
+  created_at           DateTime @default(now()) @db.Timestamptz(6)
+  title                String?
+  description          String
+  status               status   @default(OPEN)
+  uid                  Int?     @db.SmallInt
+  due_date             DateTime @db.Date
+  priority             priority
+  aid                  Int?     @db.SmallInt
+  User_Tasks_aidToUser User?    @relation("Tasks_aidToUser", fields: [aid], references: [id], onDelete: Cascade)
+  User                 User?    @relation(fields: [uid], references: [id], onDelete: Cascade)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model User {
+  id                    Int      @id @default(autoincrement()) @db.SmallInt
+  created_at            DateTime @default(now()) @db.Timestamptz(6)
+  username              String   @unique
+  password              String
+  role                  role?
+  Tasks_Tasks_aidToUser Tasks[]  @relation("Tasks_aidToUser")
+  Tasks                 Tasks[]
+}
+
+enum role {
+  ADMIN
+  REGULAR
+}
+
+enum status {
+  OPEN
+  INPROGRESS
+  COMPLETED
+}
+
+enum priority {
+  LOW
+  MEDIUM
+  HIGH
+}
