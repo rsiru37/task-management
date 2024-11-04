@@ -1,1 +1,1 @@
-export const BACKEND_URL="https://test.com";
+export const BACKEND_URL="https://task-management-a0ds.onrender.com";
