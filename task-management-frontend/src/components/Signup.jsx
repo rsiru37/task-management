@@ -1,12 +1,14 @@
 import { useState } from "react"
 import axios from "axios"
 import { BACKEND_URL } from "../config"
+import { useNavigate } from 'react-router-dom'
 
 export const Signup = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [role, setRole] = useState('REGULAR')
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -52,6 +54,9 @@ export const Signup = () => {
         <p className="text-sm text-muted-foreground">
            Already have an account? <a href="/signin" className="underline">Sign In</a>
          </p>
+         <br></br>
+         <p style={{color:"blue"}}>Since the Backend is deployed on the Cloud, You might have to wait for around 60 seconds for the Backend Server to Start</p>
+
     </div>
 }
 // /////////////////////////////////////

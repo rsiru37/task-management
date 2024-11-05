@@ -38,5 +38,21 @@ export const Signin = () => {
                 alert(`${error.response.data.message}`);
             }
         }}>LOG IN</button>
+        <br></br>
+        <p className="text-sm text-muted-foreground">
+           New here? <a href="/signup" className="underline">Sign Up</a></p>
+           <br></br>
+        <p style={{color:"blue"}}>Since the Backend is deployed on the Cloud, You might have to wait for around 60 seconds for the Backend Server to Start</p>
+        <div className="text-bottom" style={{
+        position: 'absolute',
+        bottom: '220px', // Distance from the bottom
+        left: '50%',
+        transform: 'translateX(-50%)',
+        textAlign: 'center',
+        color:"red"
+      }}>Default Credentials : 
+      username:raj1,pwd:raj1 ADMIN<br></br>
+      username:raj0,pwd:raj0 REGULAR<br></br>
+      </div>
     </div>
 }
