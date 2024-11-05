@@ -3,8 +3,10 @@
 ## Local Setup - Backend
 1. After cloning the repo navigate to /backend folder and run `npm install`
 2. Populate .env variables(JWT_SECRET,DIRECT_URL,DATABASE_URL)
-3. Edit the index.js, and add the local Frontend url(localhost:5173) to the cors object origin for the Backend to run smoothly.
-4. Finally run `npm run start` to start the Backend Server Locally
+3. Run `npx prisma migrate dev`
+4. Edit the index.js, and add the local Frontend url(localhost:5173) to the cors object origin for the Backend to run smoothly.
+5. In the index.js file, Line no.52(/login route), the `res.cookies() secure:false for Local & secure:true for PRODUCTION`
+6. Finally run `npm run start` to start the Backend Server Locally
 
 ## Local Setup - Frontend
 1. Navigate to /task-management-frontend folder
