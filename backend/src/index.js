@@ -10,6 +10,7 @@ const app = express();
 app.use(cookieParser());
 app.use(cors({
     origin: "https://task-management-frontend-lime-seven.vercel.app",
+    origin: ["https://task-management-frontend-lime-seven.vercel.app","http://localhost:5173"],
     credentials:true,
 }));
     

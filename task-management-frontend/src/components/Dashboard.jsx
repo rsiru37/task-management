@@ -7,10 +7,16 @@ import { BACKEND_URL } from "../config";
 export const Dashboard = () => {
 const [username, setusername] = useState("");
 const [tasks, settasks]=useState([]);
+const [socket,setsocket]=useState();
 const navigate = useNavigate();
 
     useEffect(() => {
         async function mounting() {
+            const socket = new WebSocket("ws://localhost:3000");
+            socket.onopen = () =>{
+            console.log("Connected from the Frontend Side");
+            setsocket(socket);
+            }
             const user = await axios.get(`${BACKEND_URL}/user`, { withCredentials:true });
             setusername(user.data.user.username);
             const data = await axios.get(`${BACKEND_URL}/fetch-regular-tasks`, {
